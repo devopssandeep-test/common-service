@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+	<listener>
+		<listener-class>
+ 			org.springframework.web.context.ContextLoaderListener
+ 		</listener-class>
+	</listener>
+
+	<context-param>
+		<param-name>contextClass</param-name>
+		<param-value>
+			org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+		</param-value>
+	</context-param>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>srdm.cloud.commonService.app.config.AppConfig</param-value>
+	</context-param>
+
+	<!-- Tomcat Bult in Filter -->
+	<filter>
+		<filter-name>httpHeaderSecurity</filter-name>
+		<filter-class>org.apache.catalina.filters.HttpHeaderSecurityFilter</filter-class>
+		<init-param>
+			<param-name>antiClickJackingEnabled</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>antiClickJackingOption</param-name>
+			<param-value>SAMEORIGIN</param-value>
+		</init-param>
+		<init-param>
+			<param-name>blockContentTypeSniffingEnabled</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<!-- Tomcat Bult in Filter -->
+	<!-- Custom Security Filter -->
+	<filter>
+		<filter-name>CustomHttpHeaderSecurity</filter-name>
+		<filter-class>jp.co.sharp.srdm.custom.filters.CustomSecurityFilter</filter-class>
+		<init-param>
+			<param-name>xssProtectionOption</param-name>
+			<param-value>1; mode=block</param-value>
+		</init-param>
+	</filter>
+	<!-- Custom Security Filter -->
+	<filter>
+		<filter-name>CharactorEncodingFilter</filter-name>
+		<filter-class>
+			org.springframework.web.filter.CharacterEncodingFilter
+		</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>httpHeaderSecurity</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>CustomHttpHeaderSecurity</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>CharactorEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<servlet>
+		<servlet-name>srdm-app</servlet-name>
+		<servlet-class>
+			org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		<init-param>
+			<param-name>contextClass</param-name>
+			<param-value>
+				org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>
+				srdm.cloud.commonService.app.config.WebMvcConfig
+			</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>srdm-app</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+</web-app>

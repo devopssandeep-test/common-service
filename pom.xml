@@ -1,0 +1,252 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>srdm.cloud</groupId>
+	<artifactId>commonService</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>commonService Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>11</java.version>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+		<skipTests>true</skipTests>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>io.spring.platform</groupId>
+				<artifactId>platform-bom</artifactId>
+				<version>Brussels-SR12</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+	<!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+	<dependency>
+		<groupId>javax.xml.bind</groupId>
+		<artifactId>jaxb-api</artifactId>
+		<version>2.3.1</version>
+	</dependency>
+
+
+	<!-- https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-core -->
+	<dependency>
+		<groupId>com.sun.xml.bind</groupId>
+		<artifactId>jaxb-core</artifactId>
+		<version>2.3.0.1</version>
+	</dependency>
+
+	<!-- https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-impl -->
+	<dependency>
+		<groupId>com.sun.xml.bind</groupId>
+		<artifactId>jaxb-impl</artifactId>
+		<version>2.3.1</version>
+	</dependency>
+
+
+	<!-- https://mvnrepository.com/artifact/com.sun.activation/javax.activation -->
+	<dependency>
+		<groupId>com.sun.activation</groupId>
+		<artifactId>javax.activation</artifactId>
+		<version>1.2.0</version>
+	</dependency>
+
+		<!-- SpringMVC -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+
+		<!-- Spring OXM -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-oxm</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- commons validator -->
+		<dependency>
+			<groupId>commons-validator</groupId>
+			<artifactId>commons-validator</artifactId>
+			<version>1.5.1</version>
+		</dependency>
+
+		<!-- XStream -->
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jettison</groupId>
+			<artifactId>jettison</artifactId>
+		</dependency>
+
+		<!-- JUnit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- SRDM Local Library -->
+		<dependency>
+			<groupId>srdm.cloud.common</groupId>
+			<artifactId>srdm-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>srdmlocale.cloud.i18n</groupId>
+			<artifactId>srdmlocale</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>srdm.cloud.shared</groupId>
+			<artifactId>srdm-shared</artifactId>
+			<version>1.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>net.arnx</groupId>
+			<artifactId>jsonic</artifactId>
+			<version>1.3.10</version>
+		</dependency>
+		<dependency>
+			<groupId>com.srdm.mongodb</groupId>
+			<artifactId>srdm-db-common2</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongo-java-driver</artifactId>
+			<version>3.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>2.4</version>
+			<classifier>jdk15</classifier>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20160212</version>
+		</dependency>
+		<dependency>
+			<groupId>xom</groupId>
+			<artifactId>xom</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.jayway.jsonpath</groupId>
+			<artifactId>json-path</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!--
+		 以下のライブラリは、Bean Validation1.1(Hibernate Validator 5.x)以上を使用する場合、
+		 Bean ValidationのAPI仕様クラス(javax.validationパッケージのクラス)が格納されているjarファイルと
+		 Hibernate Validatorのjarファイルに加えて、
+		 ・Expression Language 2.2以上のAPI仕様クラス (javax.elパッケージのクラス)
+		 ・Expression Language 2.2以上のリファレンス実装クラス
+		 が必要になる。
+		 アプリケーションサーバにデプロイした場合、これらのライブラリは、アプリケーションサーバから提供されるが、
+		 スタンドアローン環境（JUnit等）で実行する場合、これらのライブラリを依存ライブラリとして追加する必要がある。
+		 以下、参照情報
+		 http://terasolunaorg.github.io/guideline/5.4.1.RELEASE/ja/ArchitectureInDetail/WebApplicationDetail/Validation.html#how-to-use
+		 -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-el</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>commonService</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<resources>
+								<resource>
+									<directory>../../ClientProjects/res/res</directory>
+									<includes>
+										<include>**/CommonServiceConstants_*.properties</include>
+									</includes>
+								</resource>
+							</resources>
+							<outputDirectory>target/classes</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.19.1</version>
+				<!-- Test skip -->
+				<configuration>
+					<skipTests>${skipTests}</skipTests>
+					<includes>
+						<include>**/AllTestsNoDB.java</include>
+					</includes>
+					<argLine>-ea -Dcatalina.home="./src/test/resources" -Dspring.profiles.active=test</argLine>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
